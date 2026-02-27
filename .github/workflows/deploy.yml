@@ -1,0 +1,136 @@
+name: Build & Deploy Encrypted Docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y pandoc
+          npm install -g staticrypt@3
+
+      - name: Build HTML from Markdown
+        run: |
+          mkdir -p _site
+
+          # Find all markdown files and convert to HTML
+          find . -name '*.md' -not -path './.github/*' -not -path './_site/*' | while read md; do
+            # Get relative path without leading ./
+            rel="${md#./}"
+            dir=$(dirname "$rel")
+            base=$(basename "$rel" .md)
+
+            # Create output directory
+            mkdir -p "_site/$dir"
+
+            # Convert MD to HTML with pandoc
+            pandoc "$md" \
+              --standalone \
+              --metadata title="$(head -1 "$md" | sed 's/^#\s*//')" \
+              --css="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css" \
+              --template=_template.html \
+              -o "_site/$dir/$base.html"
+          done
+
+          # Copy all non-markdown assets (images, etc.)
+          find . -not -path './.git/*' -not -path './.github/*' -not -path './_site/*' \
+                 -not -name '*.md' -not -name '_template.html' -not -name '*.yml' \
+                 -type f | while read f; do
+            rel="${f#./}"
+            dir=$(dirname "$rel")
+            mkdir -p "_site/$dir"
+            cp "$f" "_site/$rel"
+          done
+
+      - name: Generate index page
+        run: |
+          cat > _site/index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Documentation</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+            <style>
+              body { max-width: 720px; margin: 0 auto; padding: 2rem; }
+              .doc-list { list-style: none; padding: 0; }
+              .doc-list li { margin: 0.75rem 0; }
+              .doc-list a { font-size: 1.1rem; }
+              .folder { color: #888; font-size: 0.85rem; margin-top: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+            </style>
+          </head>
+          <body>
+            <h1>Documentation</h1>
+            <p>Internal project documentation.</p>
+            <hr>
+          HTMLEOF
+
+          # Group by folder
+          prev_dir=""
+          find _site -name '*.html' -not -name 'index.html' | sort | while read f; do
+            rel="${f#_site/}"
+            dir=$(dirname "$rel")
+            name=$(basename "$rel" .html)
+            title=$(echo "$name" | sed 's/-/ /g; s/_/ /g')
+
+            if [ "$dir" != "$prev_dir" ]; then
+              echo "<p class='folder'>$dir</p>" >> _site/index.html
+              echo "<ul class='doc-list'>" >> _site/index.html
+              if [ -n "$prev_dir" ]; then
+                # close previous ul (insert before the new one)
+                sed -i "/<p class='folder'>$dir/i </ul>" _site/index.html
+              fi
+              prev_dir="$dir"
+            fi
+            echo "<li><a href='$rel'>$title</a></li>" >> _site/index.html
+          done
+          echo "</ul>" >> _site/index.html
+          echo "</body></html>" >> _site/index.html
+
+      - name: Encrypt all HTML with StatiCrypt
+        run: |
+          find _site -name '*.html' | while read f; do
+            staticrypt "$f" -p "${{ secrets.DOCS_PASSWORD }}" -o "$f" --short \
+              --template-title "Documentation — Login" \
+              --template-instructions "Enter the password to access documentation." \
+              --template-color-primary "#1a1a2e" \
+              --template-color-secondary "#16213e" \
+              --remember 30
+          done
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
