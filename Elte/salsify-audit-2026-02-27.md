@@ -27,7 +27,7 @@ The **"custom script"** the ELTE team is referring to is not a traditional scrip
 
 ## STORIS Import Detail
 
-![[screenshots/01-imports-overview.png]]
+![Imports overview](screenshots/01-imports-overview.png)
 *Imports page — STORIS FTP feed is the primary import (4,651 runs)*
 
 ### Mapped Fields (23 columns actually imported)
@@ -58,10 +58,10 @@ The **"custom script"** the ELTE team is referring to is not a traditional scrip
 | FloorModel | Floor Model Quantity | Number |
 | Color | Storis Colour | String |
 
-![[screenshots/03-storis-import-summary-top.png]]
+![STORIS import mappings top](screenshots/03-storis-import-summary-top.png)
 *Field mapping configuration (top half)*
 
-![[screenshots/04-storis-import-summary-bottom.png]]
+![STORIS import mappings bottom](screenshots/04-storis-import-summary-bottom.png)
 *Field mapping configuration (bottom half)*
 
 ### Unmapped Fields (40+ columns being ignored)
@@ -70,7 +70,7 @@ The **"custom script"** the ELTE team is referring to is not a traditional scrip
 
 `Addon` `AsAdvertised` `AsIsReason` `AvailOnWeb` `ColorPalette` `DimenDepth` `DimenHeight` `DimenWidth` `Keywords` `KitAvail` `KitComments` `KitDepth` `KitDesc` `KitHeight` `KitId` `KitPrice` `KitPriceSource` `KitQty` `KitSuggPrice` `KitWidth` `MadeDescription` `ObsoleteStatus` `ProductBrand` `ProductBrandDesc` `ProductCategory` `ProductCollection` `ProductCollectionDesc` `ProductDesc` `ProductGroup` `ProductVendor` `ShowAvailability` `SuppressAddToCart` `WebEnable` `WebCatVal` `CompanySpecial` `RelatedItems` `TaxonomyCategoryCode` `TaxonomyCategoryDescription` `TaxonomyValueCode` `TaxonomyValueDescription` `VendorUPCCode` `AlternateVendorUPCCode` `MaximumTradeDiscount` `Fabric` `AsIsLocations` `LocationList`
 
-![[screenshots/02-storis-import-mappings-data.png]]
+![STORIS import data grid](screenshots/02-storis-import-mappings-data.png)
 *STORIS import data grid — product rows being pulled in*
 
 ---
@@ -79,7 +79,7 @@ The **"custom script"** the ELTE team is referring to is not a traditional scrip
 
 Where the data goes after Salsify. [Open Channels in Salsify](https://app.salsify.com/app/orgs/s-4d0b7f1f-b675-4e50-85cc-26c845439947/channels)
 
-![[screenshots/00-channels-list-page1.png]]
+![Channels list page 1](screenshots/00-channels-list-page1.png)
 *Channels list — active Shopify, Dropbox, and FTP channels*
 
 ### Active Shopify Channels
@@ -93,7 +93,7 @@ Where the data goes after Salsify. [Open Channels in Salsify](https://app.salsif
 | D2C Shopify (eltedevtrue) | 1 year ago | Stale |
 | Data Mkt Clean | 6 months ago | Stale |
 
-![[screenshots/05-d2c-shopify-elte-channel.png]]
+![D2C Shopify elte-development](screenshots/05-d2c-shopify-elte-channel.png)
 *D2C Shopify (elte-development) — the main channel, publishes daily*
 
 ### Other Active Channels
@@ -124,7 +124,7 @@ These are deprecated channel types that Salsify no longer supports. Several have
 | (Unsupported) More than 16 Weeks with no PO Rugs | Dropbox | 10 months ago | Stale |
 | (Unsupported) Outlet Notice | Export | Never | Unused |
 
-![[screenshots/00c-channels-list-page2.png]]
+![Channels page 2](screenshots/00c-channels-list-page2.png)
 *Channels page 2 — the (Unsupported) legacy channels*
 
 ---
@@ -137,7 +137,7 @@ These are deprecated channel types that Salsify no longer supports. Several have
 
 **Workflows:** No custom workflows deployed. 35 standard Salsify templates in the library. No active tasks. [View Workflows](https://app.salsify.com/app/orgs/s-4d0b7f1f-b675-4e50-85cc-26c845439947/workflow/workflows)
 
-![[screenshots/06-properties-lead-time.png]]
+![Properties page](screenshots/06-properties-lead-time.png)
 *Properties page — searching "lead time" shows 8 related properties*
 
 ---
