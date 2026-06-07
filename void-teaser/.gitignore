@@ -1,0 +1,4 @@
+node_modules/
+out/*
+!out/void-teaser.mp4
+.DS_Store
