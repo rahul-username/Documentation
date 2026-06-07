@@ -1,0 +1,5 @@
+node_modules/
+out/*
+!out/worker-zero-ad.mp4
+player/dist/
+.DS_Store
