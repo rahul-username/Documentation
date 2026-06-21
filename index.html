@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Construction & Lucky Expenses</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#181b22; --line:#262b34; --txt:#e6e8ec; --mut:#9aa3af;
+    --con:#3b82f6; --luc:#a855f7; --grand:#22c55e; --hd:#11141a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:32px 18px}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--mut);margin:0 0 28px;font-size:13px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px}
+  .card h2{margin:0;padding:16px 20px;font-size:17px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .con .dot{background:var(--con)} .luc .dot{background:var(--luc)}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:10px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--hd);color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+  td.idx{color:var(--mut);width:42px}
+  .file{color:var(--mut);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+  tr:last-child td{border-bottom:none}
+  tr.total td{background:var(--hd);font-weight:700;font-size:15px;border-top:2px solid var(--line)}
+  tr.total td.num.con{color:var(--con)} tr.total td.num.luc{color:var(--luc)}
+  tr:hover td{background:#1d212a}
+  tr.total:hover td{background:var(--hd)}
+  .grand{background:linear-gradient(135deg,#13201a,#16241c);border:1px solid #21402e;border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .grand .lbl{font-size:14px;color:var(--mut)}
+  .grand .val{font-size:30px;font-weight:800;color:var(--grand);font-variant-numeric:tabular-nums}
+  .mini{display:flex;gap:24px;flex-wrap:wrap;margin-top:6px}
+  .mini span{color:var(--mut);font-size:13px}
+  .mini b{color:var(--txt)}
+  .note{font-size:12.5px;color:var(--mut);margin-top:8px;padding:10px 14px;background:#1a1d24;border-left:3px solid #3a4150;border-radius:6px}
+  .tag{font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:20px;background:#2a2f3a;color:var(--mut);margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Home Construction &amp; Lucky Expenses</h1>
+  <p class="sub">Extracted from handwritten bills + UPI payment screenshots · ₹ INR · verified by independent extraction + audit</p>
+
+  <!-- CONSTRUCTION -->
+  <div class="card con">
+    <h2><span class="dot"></span> Construction Expenses</h2>
+    <table>
+      <thead><tr><th class="idx">#</th><th>Item</th><th style="text-align:right">Cost ₹</th><th>Image file</th></tr></thead>
+      <tbody>
+        <tr><td class="idx">1</td><td>Labour (last work)</td><td class="num">1,800</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">2</td><td>Labour</td><td class="num">1,800</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">3</td><td>Labour head (head mason)</td><td class="num">2,700</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">4</td><td>Steel / Iron</td><td class="num">8,000</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">5</td><td>Cement — 15 bag</td><td class="num">6,000</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">6</td><td>Material — Sariya + Sand mix</td><td class="num">4,000</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">7</td><td>Bhandara (aggregate)</td><td class="num">4,000</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">8</td><td>Mila (mix)</td><td class="num">1,000</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">9</td><td>Tasla / kasi (tools)</td><td class="num">920</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">10</td><td>Cement (extra)</td><td class="num">1,800</td><td class="file">A-last-work-labour.jpg</td></tr>
+        <tr><td class="idx">11</td><td>Mixer machine work</td><td class="num">1,500</td><td class="file">B-second-phase-sunny.jpg</td></tr>
+        <tr><td class="idx">12</td><td>Reta-bajri (sand + gravel)</td><td class="num">5,000</td><td class="file">B-second-phase-sunny.jpg</td></tr>
+        <tr><td class="idx">13</td><td>Eent ki labour (bricklaying)</td><td class="num">1,800</td><td class="file">B-second-phase-sunny.jpg</td></tr>
+        <tr><td class="idx">14</td><td>Mistri + labour</td><td class="num">10,000</td><td class="file">B-second-phase-sunny.jpg</td></tr>
+        <tr><td class="idx">15</td><td>Cement — 16 bag</td><td class="num">6,400</td><td class="file">B-second-phase-sunny.jpg</td></tr>
+        <tr><td class="idx">16</td><td>Hardware item 1</td><td class="num">2,700</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">17</td><td>Hardware item 2</td><td class="num">930</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">18</td><td>Hardware item 3</td><td class="num">350</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">19</td><td>Hardware item 4</td><td class="num">200</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">20</td><td>Hardware item 5</td><td class="num">40</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">21</td><td>Hardware item 6</td><td class="num">140</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">22</td><td>Sariya rod — 2 no.</td><td class="num">10</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">23</td><td>5" nails (kilein)</td><td class="num">335</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">24</td><td>Hardware item 9</td><td class="num">100</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">25</td><td>Wire / tar — 2 kg</td><td class="num">72</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">26</td><td>Cement — 12 bag</td><td class="num">4,800</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">27</td><td>Cement block</td><td class="num">3,000</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">28</td><td>Tempo labour</td><td class="num">500</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">29</td><td>Reta trolly (transport)</td><td class="num">1,500</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">30</td><td>Misc exp (ghar saman)</td><td class="num">1,500</td><td class="file">D-materials-cement-block.jpg</td></tr>
+        <tr><td class="idx">31</td><td>3 labourers × 7 days × ₹600/day</td><td class="num">12,600</td><td class="file">E-labour-7day-mistri.jpg</td></tr>
+        <tr><td class="idx">32</td><td>Head mistri × 7 days × ₹900/day</td><td class="num">6,300</td><td class="file">E-labour-7day-mistri.jpg</td></tr>
+        <tr><td class="idx">33</td><td>Iron gate — Sandeep Singh (gate-wala)</td><td class="num">20,197</td><td class="file">F-gate-sandeep-singh.jpg</td></tr>
+        <tr class="total"><td></td><td>Construction Total</td><td class="num con">₹1,11,994</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LUCKY -->
+  <div class="card luc">
+    <h2><span class="dot"></span> Lucky — Legal / Personal <span class="tag">paid by Lucky</span></h2>
+    <table>
+      <thead><tr><th class="idx">#</th><th>Item</th><th style="text-align:right">Cost ₹</th><th>Image file</th></tr></thead>
+      <tbody>
+        <tr><td class="idx">1</td><td>Vakil (lawyer)</td><td class="num">12,500</td><td class="file">C-lucky-legal-personal.jpg</td></tr>
+        <tr><td class="idx">2</td><td>Tipper</td><td class="num">500</td><td class="file">C-lucky-legal-personal.jpg</td></tr>
+        <tr><td class="idx">3</td><td>Kapde ki silai (tailoring)</td><td class="num">3,000</td><td class="file">C-lucky-legal-personal.jpg</td></tr>
+        <tr><td class="idx">4</td><td>Jewellery — Arvind Sethi Jewellers <span class="tag">counted once</span></td><td class="num">7,100</td><td class="file">C-lucky-legal-personal.jpg + L-pay-arvind-sethi-jewellers-7100.jpg</td></tr>
+        <tr><td class="idx">5</td><td>Milk</td><td class="num">2,500</td><td class="file">C-lucky-legal-personal.jpg</td></tr>
+        <tr><td class="idx">6</td><td>Sham Auto Works (Krishan Dev)</td><td class="num">91,633</td><td class="file">L-pay-sham-auto-works-91633.jpg</td></tr>
+        <tr><td class="idx">7</td><td>ICICI Lombard (insurance)</td><td class="num">6,921</td><td class="file">L-pay-icici-lombard-insurance-6921.jpg</td></tr>
+        <tr><td class="idx">8</td><td>Neha</td><td class="num">11,446</td><td class="file">L-pay-neha-11446.jpg</td></tr>
+        <tr class="total"><td></td><td>Lucky Total</td><td class="num luc">₹1,35,600</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GRAND -->
+  <div class="grand">
+    <div>
+      <div class="lbl">Combined Total</div>
+      <div class="mini"><span>Construction <b>₹1,11,994</b></span><span>Lucky <b>₹1,35,600</b></span></div>
+    </div>
+    <div class="val">₹2,47,594</div>
+  </div>
+
+  <div class="note">
+    Notes: Duplicate photos &amp; one phone-contact note excluded. Hardware sub-items use audited subtotal (₹4,877). The ₹7,100 jeweller payment = the handwritten "Pile/Tile" line — counted once. Receipt B misc (ladder/fan/electric ≈ ₹8,550) excluded as struck-through scratch work.
+  </div>
+</div>
+</body>
+</html>
